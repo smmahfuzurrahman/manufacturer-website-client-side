@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
     console.log(product);
-    const {name, img, description, quantity, price, _id} = product;
+    const { name, img, description, quantity, price, _id } = product;
     const navigate = useNavigate();
-    const navigateInventory = id =>{
+    const navigateInventory = id => {
         navigate(`/product/${id}`);
     }
 
@@ -15,11 +15,13 @@ const Product = ({product}) => {
                 <figure>
                     <img className='w-60' src={img} alt="Shoes" />
                 </figure>
-                <div class="card-body">
+                <div class="card-body text-left">
                     <h2 class="card-title">{name}</h2>
-                    <p>{product.description}</p>
+                    <p>{description}</p>
+                    <p>Quantity: {quantity}</p>
+                    <p>Price: ${price}</p>
                     <div class="card-actions justify-end">
-                        <button onClick={()=> navigateInventory(_id)} class="btn btn-primary">Purchase</button>
+                        <button onClick={() => navigateInventory(_id)} class="btn btn-primary">Purchase</button>
                     </div>
                 </div>
             </div>

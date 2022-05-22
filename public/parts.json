@@ -4,6 +4,7 @@
         "name": "Powerlifting",
         "price": "500",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
+        "quantity":"500",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
     {
@@ -11,6 +12,7 @@
         "name": "Powerlifting",
         "price": "500",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
+        "quantity":"600",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
     {
@@ -18,12 +20,14 @@
         "name": "Powerlifting",
         "price": "500",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
+        "quantity":"700",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
     {
         "_id": 4,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"800",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -31,6 +35,7 @@
         "_id": 5,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"500",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -38,6 +43,7 @@
         "_id": 6,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"850",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -45,6 +51,7 @@
         "_id": 7,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"750",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -52,6 +59,7 @@
         "_id": 8,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"950",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -59,6 +67,7 @@
         "_id": 9,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"300",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -66,6 +75,7 @@
         "_id": 10,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"1500",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -73,6 +83,7 @@
         "_id": 11,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"1000",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     },
@@ -80,6 +91,7 @@
         "_id": 12,
         "name": "Powerlifting",
         "price": "500",
+        "quantity":"590",
         "description": "This are specifically purpose built facilities for this type of athletic pursuit. You’ll see a lot of weightlifting platforms and racks in this type of gym, and not a lot of cardio or weight machines.",
         "img": "https://static-01.daraz.com.bd/p/64173ba81b210d3aed749cb4b8b15900.jpg"
     }
