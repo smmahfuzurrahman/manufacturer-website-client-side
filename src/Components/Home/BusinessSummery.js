@@ -1,4 +1,4 @@
-import { faCartShopping, faFaceLaugh, faFlag, faFlagUsa, faFontAwesomeFlag, faHeart, faLandmarkFlag, faUser } from '@fortawesome/free-solid-svg-icons';
+import {faFlag, faHeart} from '@fortawesome/free-solid-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';

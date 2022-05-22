@@ -4,6 +4,7 @@ import Product from './Product';
 
 const Products = () => {
     const [products, setProducts] = UseProducts();
+    console.log(setProducts);
     const productsSlice = products.slice(0, 6);
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-2'>
