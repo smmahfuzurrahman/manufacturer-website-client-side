@@ -12,15 +12,15 @@ const Product = ({ product }) => {
 
     return (
         <div>
-            <div class="card card-compact w-full bg-base-100 shadow-xl d-flex grid grid-cols-1">
+            <div class="card card-compact w-full h-full bg-base-100 shadow-xl d-flex grid grid-cols-1">
                 <figure>
-                    <img className='w-60' src={img} alt="Shoes" />
+                    <img className='w-60 h-60 p-5' src={img} alt="Shoes" />
                 </figure>
                 <div class="card-body text-left">
                     <h2 class="card-title">{name}</h2>
                     <p>{description}</p>
-                    <p>Quantity: {quantity}</p>
-                    <p>Price: ${price}</p>
+                    <p className='text-lg font-bold'>Quantity: {quantity}</p>
+                    <p className='text-lg font-bold'>Price: ${price}</p>
                     <div class="card-actions justify-end">
                         <button onClick={() => navigateInventory(_id)} class="btn btn-primary">Purchase</button>
                     </div>
