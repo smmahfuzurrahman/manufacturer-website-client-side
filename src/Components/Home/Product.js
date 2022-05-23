@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const Product = ({ product }) => {
-    const { name, img, description, quantity, price, _id } = product;
+    const { name, img, description, availavleQuantity, price, _id, MinimumOrder } = product;
     const navigate = useNavigate();
     const navigateInventory = id => {
         navigate(`/products/${id}`);
@@ -19,7 +19,8 @@ const Product = ({ product }) => {
                 <div class="card-body text-left">
                     <h2 class="card-title">{name}</h2>
                     <p>{description}</p>
-                    <p className='text-lg font-bold'>Quantity: {quantity}</p>
+                    <p className='text-lg font-bold'>Quantity: {availavleQuantity}</p>
+                    <p className='text-lg font-bold'>Minium Order: {MinimumOrder}</p>
                     <p className='text-lg font-bold'>Price: ${price}</p>
                     <div class="card-actions justify-end">
                         <button onClick={() => navigateInventory(_id)} class="btn btn-primary">Purchase</button>

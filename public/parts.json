@@ -3,55 +3,62 @@
         "name": "Mouse Pad",
         "price": "9.53",
         "description": "Matched to logitech G sensors: The ideal surface, game lab tested to maximize logitech G mouse sensor accuracy and performance ",
-        "quantity": "500",
+        "availavleQuantity": "500",
         "img": "https://m.media-amazon.com/images/I/81Z7avaQl-L._AC_SL1500_.jpg"
     },
     {
         "name": "AMD Ryzen 5 (Cooler)",
         "price": "199.99",
         "description": " AMD's fastest 6 core processor for mainstream desktop, with 12 processing threads Can deliver elite 100 plus FPS performance in the world's most popular games ",
-        "quantity": "600",
+        "availavleQuantity": "600",
+        "MinimumOrder":"100",
         "img": "https://m.media-amazon.com/images/I/61qKe+j1WlL._AC_SL1500_.jpg"
     },
     {
         "name": "HP 62XL Black High-yield Ink",
         "price": "41.89",
         "description": "This cartridge works with: ENVY 5540, 5541, 5542, 5543, 5544, 5545, 5547, 5548, 5549, 5640, 5642, 5643, 5644, 5660, 5661, 5663, 5664, 5665, 7640, 7643, 7644, 7645; OfficeJet 5740, 5741, 5742, 5743, 5744, 5745, 5746, 8040; OfficeJet Mobile 200, 250, 258 ",
-        "quantity": "700",
+        "availavleQuantity": "700",
+        "MinimumOrder":"100",
         "img": "https://m.media-amazon.com/images/I/71Y0+glPuTL._AC_SL1500_.jpg"
     },
     {
         "name": "SanDisk 1TB SSD",
         "price": "132.99",
-        "quantity": "800",
+        "availavleQuantity": "800",
+        "MinimumOrder":"100",
         "description": "Get NVMe solid state performance featuring up to 1050MB/s read and up to 1000MB/s write speeds in a portable, high-capacity drive that’s perfect for creating amazing content or capturing incredible footage.",
         "img": "https://m.media-amazon.com/images/I/81Ek8ekLOXL._AC_SL1500_.jpg"
     },
     {
         "name": "TP-Link WiFi 6 Router AX1800",
         "price": "79.99",
-        "quantity": "500",
+        "availavleQuantity": "500",
+        "MinimumOrder":"100",
         "description": "Dual-Band WiFi 6 Internet Router: Wi-Fi 6(802.11ax) technology achieves faster speeds, greater capacity and reduced network congestion compared to the previous generation",
         "img": "https://m.media-amazon.com/images/I/61O4qvVY6XL._AC_SL1492_.jpg"
     },
     {
         "name": "Laptop Stand",
         "price": "43.76",
-        "quantity": "850",
+        "availavleQuantity": "850",
+        "MinimumOrder":"100",
         "description": "Nulaxy C3 Laptop Stand is compatible with all laptops from 10-16 inches such as MacBook 12/ 13 MacBook Air 13 Macbook Pro 13/ 15 Google Pixelbook Dell XPS HP ASUS Lenovo ThinkPad Acer Chromebook and other notebook PC computer sizes between in 10-16 inches.",
         "img": "https://m.media-amazon.com/images/I/71TBiexJ+tL._AC_SL1500_.jpg"
     },
     {
         "name": "Multi USB Cable",
         "price": "64.99",
-        "quantity": "750",
+        "availavleQuantity": "750",
+        "MinimumOrder":"100",
         "description": "Massive Docking Station: For Mac OS system, due to the Apple system restrictions OS system only could extend an external monitor via one usb c port. You can enjoy one private display content on your laptop and share all external monitors with another display content. Please make sure that your laptop Type C port support DisplayPort Alt Mode and Power Delivery. The usb c hub is incompatible with the USB-A to USB-C Adapter. ",
         "img": "https://m.media-amazon.com/images/I/71WbADQD5tL._AC_SL1500_.jpg"
     },
     {
         "name": "Cooler Master (Laptop)",
         "price": "27.99",
-        "quantity": "750",
+        "availavleQuantity": "750",
+        "MinimumOrder":"100",
         "description": " Mesh surface and 1 fan provide a chill mat for your laptop, Apple Mac BookPro, Ultrabook, notebook or netbook High performance 160 mm fan can spinat approximately 1500 RPM Heavy duty, yet ultra slim profile is great for gaming laptops ",
         "img": "https://m.media-amazon.com/images/I/61F6ZR+J4TL._AC_SL1000_.jpg"
     }
