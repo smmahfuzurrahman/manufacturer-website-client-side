@@ -32,7 +32,7 @@ const ProductInfo = () => {
             name: productsInfo.name,
             quantity: inputQuantity,
             userName:user.displayName,
-            userEmail:user.email,
+            email:user.email,
         }
         const url = `http://localhost:5000/myorder`
         fetch(url, {

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import { Link } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
+    const [user] = useAuthState(auth);
     const [myOrder, setMyOrder] = useState([]);
     console.log(myOrder);
     const handleItemDelete = id => {
@@ -23,10 +26,12 @@ const MyOrder = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/myorder')
+        const email = user?.email;
+        const url = `http://localhost:5000/myorder?email=${email}`
+        fetch(url)
             .then(res => res.json())
             .then(data => setMyOrder(data))
-    }, [])
+    }, [user])
     return (
         <div>
             <div class="overflow-x-auto">
