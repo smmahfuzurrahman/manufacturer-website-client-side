@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckOutForm = ({ myOrder }) => {
+const CheckOutForm = ({ payment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -9,7 +9,7 @@ const CheckOutForm = ({ myOrder }) => {
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
-    const { _id, price, userName, userEmail } = myOrder
+    const { _id, price, userName, userEmail } = payment
     useEffect(() => {
         fetch('https://polar-anchorage-20509.herokuapp.com/create-payment-intent', {
             method: 'POST',
@@ -69,7 +69,7 @@ const CheckOutForm = ({ myOrder }) => {
 
             //Store Payment on database
             const payment = {
-                myOrder: _id,
+                payment: _id,
                 transactionId: paymentIntent.id
             }
             fetch(`https://polar-anchorage-20509.herokuapp.com/booking/${_id}`, {
