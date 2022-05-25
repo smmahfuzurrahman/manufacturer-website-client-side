@@ -1,5 +1,6 @@
 import React from 'react';
-import Review from '../Review/Review';
+import Review from '../Dashboard/Review';
+
 import Banner from './Banner';
 import BusinessSummery from './BusinessSummery';
 import Products from './Products';

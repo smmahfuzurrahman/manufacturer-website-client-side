@@ -50,8 +50,8 @@ const ProductInfo = () => {
     return (
         <div>
             <div className='border bg-slate-100  w-4/6 mx-auto'>
-                <span className=' text-lg font-bold text-sky-400 mx-20'>User Name: {user.displayName}</span>
-                <span className=' text-lg font-bold text-sky-400 mx-20'>User Email: {user.email}</span>
+                <span className=' text-lg font-bold text-sky-400 mx-10 '>User Name: {user.displayName}</span>
+                <span className=' text-lg font-bold text-sky-400 mx-10'>User Email: {user.email}</span>
             </div>
             <div class="card lg:w-4/6 mx-auto shadow-xl lg:flex lg:flex-row">
                 <img className='w-60 h-60 p-5' src={productsInfo.img} alt="" />

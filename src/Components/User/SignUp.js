@@ -36,7 +36,7 @@ const SignUp = () => {
     }
 
     if (token) {
-        navigate('/appointment');
+        navigate('/home');
     }
     return (
         <div className='flex  justify-center items-center'>

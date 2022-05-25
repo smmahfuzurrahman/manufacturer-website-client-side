@@ -1,0 +1,57 @@
+.additems {
+    /* width: 100%; */
+    background-color: rgba(47,9,20,255);
+}
+.addbook{
+    width: 50%;
+}
+
+.addbookfrom{
+    width: 50%;
+    margin-top: 50px;
+}
+form input {
+    padding: 5px;
+    font-size: 17px;
+    border-radius: 10px; 
+    margin-left:10px ;
+}
+
+form textarea {
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    width: 70%;
+    margin-left:10px ;
+}
+
+.addbook img{
+    height: 470px;
+    width: 450px;
+    margin-top: -50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .additems {
+        width: 100%;
+    }
+    form input {
+        width: 100%;
+    }
+    form .img {
+        width: 100%;
+    }
+    
+    form textarea {
+        width: 100%;
+    }
+    .add-book-button {
+        width: 30%;
+    }
+    .addbook{
+        display: none;
+    }
+    .addbookfrom{
+        width: 95%;
+    }
+}

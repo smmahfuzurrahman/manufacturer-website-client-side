@@ -1,9 +1,9 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
+
 import { useParams } from 'react-router-dom';
-import Loading from '../Shared/Loading';
+
 import CheckOutForm from './CheekOutForm';
 
 const stripePromise = loadStripe('pk_test_51L17wJB5gQDzsDTV794q6qLFlXPE2P4Tnyb2QFzj6HNxxtsEVDs8ycmo3F0ZNkf88FvUjQU2AC6x9YVLaGHw5jVi00xhXP16On');

@@ -1,9 +1,40 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
+import auth from '../../firebase.init';
 
 const AddReview = () => {
+    const [user] = useAuthState(auth);
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data, e) => {
+        const url = `http://localhost:5000/review`
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
+        e.target.reset();
+    };
     return (
-        <div>
-            
+        <div className='additems mx-auto'>
+            <h1 className='text-white mb-5'>Store Your Book </h1>
+            <div className='store-book'>
+                {/* <div className='addbook'>
+                    <img src={addbook} alt="" />
+                </div> */}
+                <form className='addbookfrom' onSubmit={handleSubmit(onSubmit)}>
+                    <input placeholder='Your Name' className='input input-bordered w-full max-w-xs mb-5' {...register("name")} required /> <br />
+                    <input placeholder='Image Link' className='input input-bordered w-full max-w-xs mb-5' {...register("img")} required /> <br />
+                    <textarea placeholder='Short Review' className='input input-bordered w-full max-w-xs' {...register("review")} required /> <br />
+                    <button className='btn add-book-button' type="submit">Add Book</button>
+                </form>
+            </div>
         </div>
     );
 };

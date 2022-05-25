@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
 const CheckOutForm = ({ payment }) => {
+    console.log(payment);
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -9,13 +10,13 @@ const CheckOutForm = ({ payment }) => {
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
-    const { _id, price, userName, userEmail } = payment
+    const { _id, price, userName, email } = payment
     useEffect(() => {
-        fetch('https://polar-anchorage-20509.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify({ price })
         })
@@ -52,7 +53,7 @@ const CheckOutForm = ({ payment }) => {
                     card: card,
                     billing_details: {
                         name: 'userName',
-                        email: userEmail
+                        email: email
                     },
                 },
             },
@@ -72,11 +73,11 @@ const CheckOutForm = ({ payment }) => {
                 payment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://polar-anchorage-20509.herokuapp.com/booking/${_id}`, {
+            fetch(`http://localhost:5000/myorder/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(payment)
             }).then(res => res.json())
