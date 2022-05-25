@@ -31,7 +31,7 @@ const Navbar = () => {
                         {megamenu}
                     </ul>
                 </div>
-                <span className="normal-case text-xl font-bold cursor-pointer">daisyUI</span>
+                <span className="normal-case text-xl font-bold cursor-pointer">Computer Village</span>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

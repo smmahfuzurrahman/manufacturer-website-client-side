@@ -19,17 +19,20 @@ const Dashboard = () => {
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    {user && <>
-                        <li><Link to="/dashboard/myprofile"> My Profile</Link></li>
-                        <li><Link to="/dashboard/addreview"> Add Review</Link></li>
+                    {/* {user && <>
 
-                    </>}
-                    {admin && <>
+
+                    </>} */}
+                    {admin ? <>
+                        <li><Link to="/dashboard/myprofile"> My Profile</Link></li>
                         <li><Link to="/dashboard/users">All User</Link></li>
-                        <li><Link to="/dashboard/allorder">Manage All Orders</Link></li>
-                        <li><Link to="/dashboard/addproduct">Add A Product</Link></li>
                         <li><Link to="/dashboard/manageproduct">Manage Products</Link></li>
-                    </>}
+                        <li><Link to="/dashboard/allorder" className='text-left'>Manage All Orders</Link></li>
+                        <li><Link to="/dashboard/addproduct">Add A Product</Link></li>
+                    </> :
+                        <>
+                            <li><Link to="/dashboard/addreview"> Add Review</Link></li>
+                        </>}
                 </ul>
             </div>
 

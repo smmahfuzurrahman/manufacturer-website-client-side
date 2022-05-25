@@ -30,7 +30,7 @@ const Login = () => {
         if (token) {
             navigate(from, { replace: true });
         }
-    }, [token, from , navigate])
+    }, [token, from, navigate])
 
     if (loading || gloading) {
         return <Loading></Loading>
@@ -38,7 +38,9 @@ const Login = () => {
     if (error || gerror) {
         signInError = <p className='text-red-500'>{error?.message || gerror?.message}</p>
     }
-
+    if (token) {
+        navigate('/home');
+    }
 
 
     return (

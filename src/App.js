@@ -1,9 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import './App.css';
 import AddReview from './Components/AddReview/AddReview';
 import Dashboard from './Components/Dashboard/Dashboard';
-
 import MyOrder from './Components/Dashboard/MyOrder';
 import Payment from './Components/Dashboard/Payment';
 import Users from './Components/Dashboard/Users';
@@ -14,6 +13,7 @@ import Login from './Components/User/Login';
 import RequireAuth from './Components/User/RequireAuth';
 import SignUp from './Components/User/SignUp';
 import UserProfile from './Components/UserProfile/UserProfile';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -27,6 +27,8 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route path="addreview" element={<AddReview />}></Route>
           <Route path="myprofile" element={<UserProfile />}></Route>
+          <Route path="users" element={<Users />}></Route>
+          <Route path="manageproduct" element={<Users />}></Route>
           <Route path="users" element={<Users />}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>

@@ -71,7 +71,7 @@ const MyOrder = () => {
                                     <td>{order.name}</td>
                                     <td>{order.price}</td>
                                     <td>{order.quantity}</td>
-                                    <td><button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error">Delete</button></td>
+                                    <td>{order.paid && <button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error disabled" disabled>Delete</button>}</td>
                                     <td>{(order.price && !order.paid) &&
                                         <Link to={`/payment/${order._id}`}>
                                             <button className='btn btn-xs btn-success'>Pay</button>
