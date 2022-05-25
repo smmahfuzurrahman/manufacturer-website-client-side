@@ -1,39 +1,49 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
+import CheckoutForm from './CheekOutForm';
 
-import CheckOutForm from './CheekOutForm';
 
 const stripePromise = loadStripe('pk_test_51L17wJB5gQDzsDTV794q6qLFlXPE2P4Tnyb2QFzj6HNxxtsEVDs8ycmo3F0ZNkf88FvUjQU2AC6x9YVLaGHw5jVi00xhXP16On');
 
 const Payment = () => {
-    const [payment, setPayment] = useState([]);
     const { id } = useParams();
-    useEffect(() => {
-        const url = `http://localhost:5000/myorder/${id}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setPayment(data));
-    }, [])
+    const [user] = useAuthState(auth)
+    const url = `http://localhost:5000/myorder/${id}`;
+
+    const { data, isLoading } = useQuery(['booking', id], () => fetch(url, {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
-        <div>
-            {/* <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+        <div className='container'>
+            <div class="card">
                 <div class="card-body">
-                    <p className='text-success font-bold'>Hello, { }</p>
-                    <h2 class="card-title">Please Pay for{ }</h2>
-                    <p>Please Pay : ${ }</p>
+                    <h3>Hello {user.displayName}</h3>
+                    <h5 class="card-title">Please For: {data.name}</h5>
+                    <p class="card-text">Please Pay: ${data.price}</p>
+
                 </div>
-            </div> */}
-            <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+            </div>
+
+            <div class="card">
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
-                        <CheckOutForm
-                            payment={payment}
-                        ></CheckOutForm>
-
+                        <CheckoutForm data={data} />
                     </Elements>
+
                 </div>
             </div>
         </div>

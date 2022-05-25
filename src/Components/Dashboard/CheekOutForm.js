@@ -1,22 +1,21 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useEffect, useState } from 'react';
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import React, { useEffect, useState } from "react";
 
-const CheckOutForm = ({ payment }) => {
-    console.log(payment);
+const CheckoutForm = ({ data }) => {
     const stripe = useStripe();
     const elements = useElements();
-    const [cardError, setCardError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [processing, setProcessing] = useState(false);
-    const [clientSecret, setClientSecret] = useState("");
+    const [cardError, setCardError] = useState("");
+    const [success, setSuccess] = useState("");
     const [transactionId, setTransactionId] = useState("");
-    const { _id, price, userName, email } = payment
+    const [clientSecret, setClientSecret] = useState('');
+
+    const { price, email, displayName } = data;
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify({ price })
         })
@@ -26,33 +25,39 @@ const CheckOutForm = ({ payment }) => {
                     setClientSecret(data.clientSecret);
                 }
             });
-    }, [])
+
+    }, [price])
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         if (!stripe || !elements) {
-            return
+            return;
         }
+
         const card = elements.getElement(CardElement);
+
         if (card == null) {
-            return
+            return;
         }
+
         const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-        })
+            type: "card",
+            card,
+        });
+        if (error) {
+            setCardError(error.message);
+            setSuccess('');
+        } else {
+            setCardError("");
+        }
 
-        setCardError(error?.message || '')
-        setSuccess('');
-        setProcessing(true);
-
-        //confirm Card payment 
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: 'userName',
+                        name: displayName,
                         email: email
                     },
                 },
@@ -60,36 +65,15 @@ const CheckOutForm = ({ payment }) => {
         );
         if (intentError) {
             setCardError(intentError?.message);
-            setProcessing(false);
 
         }
         else {
             setCardError('');
-            setTransactionId(paymentIntent.id)
-            setSuccess('Congratulation your payment is Completed')
-
-            //Store Payment on database
-            const payment = {
-                payment: _id,
-                transactionId: paymentIntent.id
-            }
-            fetch(`http://localhost:5000/myorder/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
-                    // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(payment)
-            }).then(res => res.json())
-                .then(data => {
-                    setProcessing(false)
-                    console.log(data);
-                })
-
+            setTransactionId(paymentIntent.id);
+            console.log(paymentIntent);
+            setSuccess('Your Payment Is Completed!')
         }
-
-    }
-
+    };
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -97,33 +81,33 @@ const CheckOutForm = ({ payment }) => {
                     options={{
                         style: {
                             base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+                                fontSize: "16px",
+                                color: "#424770",
+                                "::placeholder": {
+                                    color: "#aab7c4",
                                 },
                             },
                             invalid: {
-                                color: '#9e2146',
+                                color: "#9e2146",
                             },
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                <button type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
             {
-                cardError && <p className='text-red-500'>{cardError}</p>
+                cardError && <p className="text-danger">{cardError}</p>
             }
             {
-                success && <div className='text-green-500'>
+                success && <div className="text-primary">
                     <p>{success}</p>
-                    <p>Your Transaction Id: <span className='text-orange-500 font-bold'>{transactionId}</span> </p>
+                    <p>Your Transaction Id: <span>{transactionId}</span></p>
                 </div>
             }
         </>
     );
 };
 
-export default CheckOutForm;
+export default CheckoutForm;
