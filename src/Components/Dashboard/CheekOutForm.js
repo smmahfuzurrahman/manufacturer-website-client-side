@@ -95,7 +95,6 @@ const CheckoutForm = ({ data }) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                console.log(handleSubmit);
                 <h1 className="my-3" >Payment With Card</h1>
                 <CardElement
                     options={{
