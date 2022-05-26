@@ -8,8 +8,8 @@ import useAdmin from '../Hook/useAdmin';
 
 
 const Navbar = () => {
-    const [admin] = useAdmin()
     const [user, loading, error] = useAuthState(auth);
+    const [admin] = useAdmin(user)
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken');
@@ -19,7 +19,7 @@ const Navbar = () => {
         <>
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/blog">Blog</Link></li>
-            {admin ? '' : <li><Link to="/myorder">My Order</Link></li>}
+            {admin ? ' ' : <li><Link to="/myorder">My Order</Link></li>}
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li>{user ? <button onClick={logout} className="btn btn-ghost">SIGN OUT</button> : <Link to="/login">Login</Link>}</li>
         </>

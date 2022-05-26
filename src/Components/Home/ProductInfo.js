@@ -27,10 +27,7 @@ const ProductInfo = () => {
         const quantity = parseInt(inputQuantity);
         const newPrice = Math.floor(quantity * productsInfo.price);
         if (parseInt(inputQuantity) <= parseInt(productsInfo.MinimumOrder)) {
-            return <div class="modal modal-bottom sm:modal-middle">
-                <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-                <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
-            </div>
+           return alert("Please order more than 100");
 
         }
         else if (parseInt(inputQuantity) > parseInt(productsInfo.availavleQuantity)) {
