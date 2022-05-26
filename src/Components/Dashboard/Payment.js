@@ -22,6 +22,7 @@ const Payment = () => {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
+    console.log(data);
 
     if (isLoading) {
         return <Loading></Loading>
@@ -29,16 +30,17 @@ const Payment = () => {
 
     return (
         <div className='container'>
-            <div class="card">
+            <div class="card w-96 bg-base-100 shadow-xl my-12 mx-auto">
                 <div class="card-body">
-                    <h3>Hello {user.displayName}</h3>
-                    <h5 class="card-title">Please For: {data.name}</h5>
-                    <p class="card-text">Please Pay: ${data.price}</p>
-
+                    <h2 class="card-title">Hello, {user.displayName}</h2>
+                    <p className='text-left font-bold'>Product Name : {data.name}</p>
+                    <p className='text-left font-bold text-red-500'>Total Price: ${data.price}.00</p>
+                    <div class="card-actions justify-end">
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card w-auto max-w-md shadow-2xl bg-base-100 mx-auto text-black">
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm data={data} />

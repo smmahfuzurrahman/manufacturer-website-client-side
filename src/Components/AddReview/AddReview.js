@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddReview = () => {
@@ -20,14 +21,12 @@ const AddReview = () => {
                 console.log(result);
             })
         e.target.reset();
+        toast('Thanks Your FeedBack');
     };
     return (
         <div className='additems mx-auto'>
             <h1 className='text-white mb-5'>Add review</h1>
             <div className='store-book'>
-                {/* <div className='addbook'>
-                    <img src={addbook} alt="" />
-                </div> */}
                 <form className='addbookfrom' onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder='Your Name' className='input input-bordered w-full max-w-xs mb-5' {...register("name")} required /> <br />
                     <input placeholder='Image Link' className='input input-bordered w-full max-w-xs mb-5' {...register("img")} required /> <br />

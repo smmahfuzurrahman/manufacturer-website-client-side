@@ -4,10 +4,12 @@ import auth from '../../firebase.init';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import { signOut } from 'firebase/auth';
+import useAdmin from '../Hook/useAdmin';
 
 
-const MyOrder = () => {
+const ManageAllOrder = () => {
     const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     const [myOrder, setMyOrder] = useState([]);
     const navigate = useNavigate();
     console.log(myOrder);
@@ -29,26 +31,15 @@ const MyOrder = () => {
     }
 
     useEffect(() => {
-        const email = user?.email;
-        const url = `http://localhost:5000/myorder?email=${email}`
-        fetch(url, {
+        fetch('http://localhost:5000/allorder', {
             method: 'GET',
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
             }
         })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    signOut(auth);
-                    localStorage.removeItem('accessToken');
-                    navigate('/')
-                }
-                return res.json()
-            })
-            .then(data => {
-                setMyOrder(data)
-            });
-    }, [user])
+            .then(res => res.json())
+            .then(data => setMyOrder(data))
+    }, [])
     return (
         <div>
             <div class="overflow-x-auto">
@@ -56,11 +47,13 @@ const MyOrder = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th className=''>Name</th>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Action</th>
                             <th>Payment Status</th>
+                            <th>Action</th>
                             <th>Transaction Id</th>
                         </tr>
                     </thead>
@@ -69,24 +62,25 @@ const MyOrder = () => {
                             myOrder.map((order, i) =>
                                 <tr>
                                     <th>{i + 1}</th>
+                                    <th>{order.userName}</th>
+                                    <th>{order.email}</th>
                                     <td>{order.name}</td>
                                     <td>{order.price}</td>
                                     <td>{order.quantity}</td>
-                                    <td>{
-                                        order.paid ? <button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error disabled" disabled>Delete</button> : <button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error" >Delete</button>
-                                    }
-                                    </td>
-                                    <td>{(order.price && !order.paid) &&
-                                        <Link to={`/payment/${order._id}`}>
-                                            <button className='btn btn-xs btn-success'>Pay</button>
-                                        </Link>
+                                    <td>{!order.paid && <div>
+                                        <p className='text-error'>Un Paid</p>
+                                    </div>
                                     }
                                         {(order.price && order.paid) &&
                                             <div>
                                                 <p className='text-success'>Paid</p>
-
                                             </div>
                                         }</td>
+                                    <td>{
+                                        order.paid ? <button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error disabled" disabled>Delete</button> : <button onClick={() => handleItemDelete(order._id)} class="btn btn-xs btn-error" >Delete</button>
+                                    }
+                                    </td>
+
                                     <td><span> {order.transactionId}</span></td>
                                 </tr>
                             )
@@ -98,4 +92,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
+export default ManageAllOrder;

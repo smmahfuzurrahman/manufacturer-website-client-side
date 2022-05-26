@@ -16,6 +16,10 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import 'react-toastify/dist/ReactToastify.css';
 import ManageProduct from './Components/Dashboard/ManageProduct';
 import AddProduct from './Components/Dashboard/AddProduct';
+import ManageAllOrder from './Components/Dashboard/ManageAllOrder';
+import Footer from './Components/Shared/Footer/Footer';
+import NotFound from './Components/Shared/NotFound';
+import Blogs from './Components/Home/Blog';
 
 function App() {
   return (
@@ -24,6 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />}></Route>
+        <Route path='/blog' element={<Blogs />}></Route>
         <Route path='/products/:productsId' element={<RequireAuth><ProductInfo /></RequireAuth>}></Route>
         <Route path='/myorder' element={<RequireAuth><MyOrder /></RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
@@ -32,12 +37,15 @@ function App() {
           <Route path="users" element={<Users />}></Route>
           <Route path="manageproduct" element={<ManageProduct />}></Route>
           <Route path="addproduct" element={<AddProduct />}></Route>
+          <Route path="allorder" element={<ManageAllOrder />}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path="payment/:id" element={<Payment></Payment>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
 
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );

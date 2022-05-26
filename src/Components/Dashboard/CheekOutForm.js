@@ -6,7 +6,7 @@ const CheckoutForm = ({ data }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState("");
     const [success, setSuccess] = useState("");
-    const [transactionId, setTransactionId] = useState("");
+    const [transectionId, settransectionId] = useState("");
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
 
@@ -72,12 +72,11 @@ const CheckoutForm = ({ data }) => {
         }
         else {
             setCardError('');
-            setTransactionId(paymentIntent.id);
-            console.log(paymentIntent);
+            settransectionId(paymentIntent.id);
             setSuccess('Your Payment Is Completed!')
             const payment = {
                 order: _id,
-                transactionId: paymentIntent.id
+                transectionId: paymentIntent.id
             }
             fetch(`http://localhost:5000/myorder/${_id}`, {
                 method: 'PATCH',
@@ -96,33 +95,35 @@ const CheckoutForm = ({ data }) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
+                console.log(handleSubmit);
+                <h1 className="my-3" >Payment With Card</h1>
                 <CardElement
                     options={{
                         style: {
                             base: {
-                                fontSize: "16px",
-                                color: "#424770",
-                                "::placeholder": {
-                                    color: "#aab7c4",
+                                fontSize: '16px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
                                 },
                             },
                             invalid: {
-                                color: "#9e2146",
+                                color: '#9e2146',
                             },
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
             {
-                cardError && <p className="text-danger">{cardError}</p>
+                cardError && <p className='text-red-500'>{cardError}</p>
             }
             {
-                success && <div className="text-primary">
+                success && <div className='text-green-500'>
                     <p>{success}</p>
-                    <p>Your Transaction Id: <span>{transactionId}</span></p>
+                    <p>Your Transaction Id:<span className='text-orange-500 font-bold'>{transectionId}</span> </p>
                 </div>
             }
         </>

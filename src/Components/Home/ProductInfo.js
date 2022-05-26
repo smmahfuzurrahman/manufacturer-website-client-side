@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useAdmin from '../Hook/useAdmin';
 const ProductInfo = () => {
     const [user] = useAuthState(auth);
-    console.log(user);
+    const [admin] = useAdmin(user);
     const { productsId } = useParams();
     const [productsInfo, setProductsInfo] = useState({});
     const [inputQuantity, setInputQuantity] = useState('');
     console.log(productsInfo);
+
     // const order = inputQuantity;
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productsId}`)
@@ -16,23 +19,29 @@ const ProductInfo = () => {
             .then(data => setProductsInfo(data))
     }, [productsId])
     const handleInputQuantity = event => {
-
         setInputQuantity(event.target.value);
 
     }
     const Order = () => {
-        if (inputQuantity < 100) {
-            return alert("Order more then 100");
+
+        const quantity = parseInt(inputQuantity);
+        const newPrice = Math.floor(quantity * productsInfo.price);
+        if (parseInt(inputQuantity) <= parseInt(productsInfo.MinimumOrder)) {
+            return <div class="modal modal-bottom sm:modal-middle">
+                <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
+                <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
+            </div>
+
         }
-        else if (inputQuantity >= productsInfo.quantity) {
+        else if (parseInt(inputQuantity) > parseInt(productsInfo.availavleQuantity)) {
             return alert("Stock Over");
         }
         const order = {
-            price: productsInfo.price,
+            price: newPrice,
             name: productsInfo.name,
             quantity: inputQuantity,
-            userName:user.displayName,
-            email:user.email,
+            userName: user.displayName,
+            email: user.email,
         }
         const url = `http://localhost:5000/myorder`
         fetch(url, {
@@ -46,6 +55,13 @@ const ProductInfo = () => {
             .then(result => {
                 console.log(result);
             })
+        toast.success('Order Stored')
+        if (typeof document !== 'undefined') {
+            document.getElementById('quantity').value = ''
+        }
+
+
+
     };
     return (
         <div>
@@ -62,9 +78,14 @@ const ProductInfo = () => {
                     <p className='text-left font-bold text-red-500'>Minium Order: {productsInfo.MinimumOrder}</p>
                     <p className='text-left font-bold'>Price: ${productsInfo.price}</p>
                     <span className='text-left font-bold'> Order:
-                        <input onChange={handleInputQuantity} type="number" placeholder="Quantity" class="mx-5 input input-sm input-info w-30 max-w-xs" />
+                        <input id='quantity' onChange={handleInputQuantity} type="number" placeholder="Quantity" class="mx-5 input input-sm input-info w-30 max-w-xs" />
                     </span>
-                    <button onClick={() => Order(Order)} className='btn btn-sm btn-primary w-28'>Order</button>
+
+                    {
+                        admin ? <button onClick={() => Order(Order)} className='btn btn-sm btn-primary w-28' disabled>Order</button> : <button onClick={() => Order(Order)} className='btn btn-sm btn-primary w-28' >Order</button>
+                    }
+
+
                 </div>
             </div>
         </div>
