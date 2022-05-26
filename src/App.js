@@ -14,6 +14,8 @@ import RequireAuth from './Components/User/RequireAuth';
 import SignUp from './Components/User/SignUp';
 import UserProfile from './Components/UserProfile/UserProfile';
 import 'react-toastify/dist/ReactToastify.css';
+import ManageProduct from './Components/Dashboard/ManageProduct';
+import AddProduct from './Components/Dashboard/AddProduct';
 
 function App() {
   return (
@@ -28,8 +30,8 @@ function App() {
           <Route path="addreview" element={<AddReview />}></Route>
           <Route path="myprofile" element={<UserProfile />}></Route>
           <Route path="users" element={<Users />}></Route>
-          <Route path="manageproduct" element={<Users />}></Route>
-          <Route path="users" element={<Users />}></Route>
+          <Route path="manageproduct" element={<ManageProduct />}></Route>
+          <Route path="addproduct" element={<AddProduct />}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>

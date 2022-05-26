@@ -23,7 +23,7 @@ const AddReview = () => {
     };
     return (
         <div className='additems mx-auto'>
-            <h1 className='text-white mb-5'>Store Your Book </h1>
+            <h1 className='text-white mb-5'>Add review</h1>
             <div className='store-book'>
                 {/* <div className='addbook'>
                     <img src={addbook} alt="" />
@@ -32,7 +32,7 @@ const AddReview = () => {
                     <input placeholder='Your Name' className='input input-bordered w-full max-w-xs mb-5' {...register("name")} required /> <br />
                     <input placeholder='Image Link' className='input input-bordered w-full max-w-xs mb-5' {...register("img")} required /> <br />
                     <textarea placeholder='Short Review' className='input input-bordered w-full max-w-xs' {...register("review")} required /> <br />
-                    <button className='btn add-book-button' type="submit">Add Book</button>
+                    <button className='btn add-book-button' type="submit">Add Review</button>
                 </form>
             </div>
         </div>
