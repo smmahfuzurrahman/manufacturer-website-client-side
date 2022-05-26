@@ -8,7 +8,7 @@ const AddReview = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        const url = `http://localhost:5000/review`
+        const url = `https://shrouded-plains-58641.herokuapp.com/review`
         fetch(url, {
             method: "POST",
             headers: {

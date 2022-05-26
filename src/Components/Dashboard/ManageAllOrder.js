@@ -16,7 +16,7 @@ const ManageAllOrder = () => {
     const handleItemDelete = id => {
         const alert = window.confirm("Confirm Delete");
         if (alert) {
-            const url = `http://localhost:5000/myorder/${id}`;
+            const url = `https://shrouded-plains-58641.herokuapp.com/myorder/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -31,7 +31,7 @@ const ManageAllOrder = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/allorder', {
+        fetch('https://shrouded-plains-58641.herokuapp.com/allorder', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`,

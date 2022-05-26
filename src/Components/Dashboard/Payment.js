@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51L17wJB5gQDzsDTV794q6qLFlXPE2P4Tnyb2Q
 const Payment = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth)
-    const url = `http://localhost:5000/myorder/${id}`;
+    const url = `https://shrouded-plains-58641.herokuapp.com/myorder/${id}`;
 
     const { data, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',

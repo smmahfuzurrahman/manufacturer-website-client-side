@@ -14,7 +14,7 @@ const ProductInfo = () => {
 
     // const order = inputQuantity;
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productsId}`)
+        fetch(`https://shrouded-plains-58641.herokuapp.com/products/${productsId}`)
             .then(res => res.json())
             .then(data => setProductsInfo(data))
     }, [productsId])
@@ -43,7 +43,7 @@ const ProductInfo = () => {
             userName: user.displayName,
             email: user.email,
         }
-        const url = `http://localhost:5000/myorder`
+        const url = `https://shrouded-plains-58641.herokuapp.com/myorder`
         fetch(url, {
             method: "POST",
             headers: {
