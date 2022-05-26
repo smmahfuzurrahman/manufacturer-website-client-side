@@ -100,7 +100,7 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn w-full mx-w-xs text-white' type="submit" value="LOGIN" />
+                        <input className='btn w-full mx-w-xs btn-outline' type="submit" value="LOGIN" />
                     </form>
                     <small>New to Doctors Portal <Link to="/signup" className='text-primary'>Create New Account</Link></small>
                     <div className="divider">OR</div>

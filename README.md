@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Website: Computer Village
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Computer Village is an online marketplace for books. Millions of brand new books, rare books, and out-of-print books are offered for sale through the Computer Village websites from thousands of booksellers around the whole country.  Readers can find bestsellers, collectors can find rare books, students can find new textbooks, and treasure hunters can find long-lost books.
 
-## Available Scripts
+Our mission is to help people find and buy any book from any bookseller and our business stretches around the county. The unique inventory of books for sale from booksellers includes the country’s and world’s finest antiquarian books dating back to the 15th century, countless out-of-print gems, millions of signed books, millions of used copies, a vast selection of college textbooks and new books too.
 
-In the project directory, you can run:
 
-### `npm start`
+Computer Village remains a company with a passion for books. Booksellers love Computer Village for helping them to sell books to buyers around the globe – 24 hours a day, 365 days a year.  Buyers love Computer Village for helping them to find and purchase books from the vast online inventory.
+## Live Site Link:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://computer-villages.web.app/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## website's features and functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Free delivery at your doorstep.
+* Maximum discount offers upto 25% .
+* Exciting discounts on your first order.
+* Safer and faster delivery.
+* Order tracking.
+* pdf formats are also available
+* Delivery across 19000 pin codes in the country
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
