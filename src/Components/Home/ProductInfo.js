@@ -66,7 +66,7 @@ const ProductInfo = () => {
                 <span className=' text-lg font-bold text-sky-400 mx-10 '>User Name: {user.displayName}</span>
                 <span className=' text-lg font-bold text-sky-400 mx-10'>User Email: {user.email}</span>
             </div>
-            <div class="card lg:w-4/6 mx-auto shadow-xl lg:flex lg:flex-row">
+            <div class="card w-full mx-auto shadow-xl lg:flex lg:flex-row">
                 <img className='w-60 h-60 p-5' src={productsInfo.img} alt="" />
                 <div class="card-body">
                     <h2 class=" text-xl font-bold text-left">{productsInfo.name}</h2>
