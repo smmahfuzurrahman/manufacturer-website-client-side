@@ -12,7 +12,7 @@ const CheckoutForm = ({ data }) => {
 
     const { price, email, displayName, _id } = data;
     useEffect(() => {
-        fetch('https://shrouded-plains-58641.herokuapp.com/create-payment-intent', {
+        fetch('https://stormy-dusk-99238.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -78,8 +78,8 @@ const CheckoutForm = ({ data }) => {
                 order: _id,
                 transectionId: paymentIntent.id
             }
-            fetch(`https://shrouded-plains-58641.herokuapp.com/myorder/${_id}`, {
-                method: 'PATCH',
+            fetch(`https://stormy-dusk-99238.herokuapp.com/myorder/${_id}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

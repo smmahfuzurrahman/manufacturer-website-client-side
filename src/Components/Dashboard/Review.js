@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Review = () => {
     const [reviews, setReview] = useState([]);
     useEffect(() => {
-        fetch('https://shrouded-plains-58641.herokuapp.com/review')
+        fetch('https://stormy-dusk-99238.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReview(data))
     }, [])

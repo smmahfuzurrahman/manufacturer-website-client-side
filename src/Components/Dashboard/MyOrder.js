@@ -14,7 +14,7 @@ const MyOrder = () => {
     const handleItemDelete = id => {
         const alert = window.confirm("Confirm Delete");
         if (alert) {
-            const url = `https://shrouded-plains-58641.herokuapp.com/myorder/${id}`;
+            const url = `https://stormy-dusk-99238.herokuapp.com/myorder/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -30,7 +30,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         const email = user?.email;
-        const url = `https://shrouded-plains-58641.herokuapp.com/myorder?email=${email}`
+        const url = `https://stormy-dusk-99238.herokuapp.com/myorder?email=${email}`
         fetch(url, {
             method: 'GET',
             headers: {

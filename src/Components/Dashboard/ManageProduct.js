@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const handleItemDelete = id => {
         const alert = window.confirm("Confirm Delete");
         if (alert) {
-            const url = `https://shrouded-plains-58641.herokuapp.com/products/${id}`;
+            const url = `https://stormy-dusk-99238.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -22,7 +22,7 @@ const ManageProduct = () => {
         }
     }
     useEffect(() => {
-        fetch('https://shrouded-plains-58641.herokuapp.com/products')
+        fetch('https://stormy-dusk-99238.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setManageProduct(data))
     }, [])

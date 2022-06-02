@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        const url = `https://shrouded-plains-58641.herokuapp.com/products`
+        const url = `https://stormy-dusk-99238.herokuapp.com/products`
         fetch(url, {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(data)
         })

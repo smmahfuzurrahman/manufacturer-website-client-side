@@ -4,7 +4,6 @@ import Product from './Product';
 
 const Products = () => {
     const [products, setProducts] = UseProducts();
-    console.log(setProducts);
     const productsSlice = products.slice(-6);
     const productss = productsSlice.reverse()
     return (
@@ -13,6 +12,7 @@ const Products = () => {
                 productss.map(product => <Product
                     key={product._id}
                     product={product}
+                    setProducts={setProducts}
                 ></Product>
 
                 )
