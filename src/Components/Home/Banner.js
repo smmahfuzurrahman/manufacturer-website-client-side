@@ -1,11 +1,19 @@
 import React from 'react';
-
+import banner from '../../images/Banner.png';
+import './Banner.css';
 const Banner = () => {
     return (
-        <div class="carousel w-full m-auto">
-            <div id="slide1" class="carousel-item relative w-full">
-                <img src="https://biztechmagazine.com/sites/biztechmagazine.com/files/styles/cdw_hero/public/articles/201808/Q0318-BT-Voices-Grisamore-hero.jpg?itok=BX0ALvJN" className="w-full" alt=''/> 
+        <div className="body">
+
+            <div className='banner-text'>
+                <h1>Computer Village</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia architecto ducimus consectetur quisquam porro fuga aperiam, consequuntur molestias mollitia eaque repellat illo quis doloremque eveniet, cupiditate quaerat optio officiis deserunt?</p>
             </div>
+
+            <div className='absolute right-0 z-1 sm:none'>
+                <img src={banner} alt="" />
+            </div>
+
         </div>
     );
 };
